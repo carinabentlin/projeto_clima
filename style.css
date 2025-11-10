@@ -1,134 +1,144 @@
-/* FUNDO */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #cfe8ff, #a8d7ff);
-    margin: 0;
-    padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: background 0.5s;
 }
 
-/* CONTAINER CENTRAL */
+/* Fundo dinâmico (dia/noite) */
+body.dia {
+  background: linear-gradient(180deg, #9ad5ff, #b4e0ff, #d3f0ff);
+}
+
+body.noite {
+  background: linear-gradient(180deg, #0d1a33, #112244, #0a1529);
+}
+
+/* Container principal */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    padding-top: 50px;
+  text-align: center;
+  width: 350px;
 }
 
-/* CARTÃO DE BUSCA */
-.search-card {
-    background: #fff;
-    padding: 35px 50px;
-    border-radius: 20px;
-    box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.12);
-    text-align: center;
-}
-
-.search-card h1 {
-    margin-bottom: 20px;
-    color: #324d67;
-    font-size: 1.4rem;
-}
-
-/* FORMULÁRIO */
+/* Caixa de busca */
 .form {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
 }
 
-.form input {
-    padding: 12px 16px;
-    width: 240px;
-    border-radius: 8px;
-    border: 1px solid #d3dce6;
-    font-size: 0.95rem;
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #fff;
+  outline: none;
 }
 
-.form button {
-    background: #4d8bff;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: 0.3s;
+button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #3d8bfd;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.form button:hover {
-    background: #2f6df1;
+button:hover {
+  background: #1d6df6;
 }
 
-/* CARTÃO DE RESULTADO */
+/* Card Glassmorphism */
 .weather-card {
-    background: #fff;
-    padding: 30px 40px;
-    border-radius: 20px;
-    box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.12);
-    text-align: center;
-    margin-top: 30px;
-    width: 260px;
+  margin-top: 20px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(15px);
+  border-radius: 18px;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.15);
+  animation: fadeIn 0.5s ease forwards;
 }
 
-/* TEMPERATURA */
+/* Temperatura */
 .temp-display {
-    background: linear-gradient(135deg, #e8f1ff, #d2e7ff);
-    padding: 20px;
-    border-radius: 14px;
-    font-size: 3rem;
-    font-weight: 600;
-    color: #1e2a3a;
-    margin-bottom: 12px;
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
-/* CIDADE */
+/* Nome da cidade */
 .city-label {
-    margin: 0;
-    font-size: 1rem;
-    color: #3b4a6b;
-    font-weight: 500;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-/* ANIMAÇÃO DO CARD AO APARECER */
-.animate-show {
-    opacity: 0;
-    transform: translateY(15px);
-    animation: fadeInMove 0.5s ease-in-out forwards;
+/* Descrição */
+.description {
+  opacity: 0.8;
+  margin-top: 5px;
+  font-size: 0.9rem;
 }
 
-@keyframes fadeInMove {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ERROS */
+/* Erro */
 .erro-msg {
-    background: #ffe5e5;
-    color: #a40000;
-    padding: 12px;
-    border-left: 4px solid #ff6b6b;
-    border-radius: 8px;
-    margin-top: 15px;
-    font-size: 0.95rem;
-    width: 260px;
-    text-align: center;
-}
-/* TEMAS DO CARD */
-.tema-frio .temp-display {
-    background: linear-gradient(135deg, #d7ebff, #9ccfff);
-    color: #143d73;
+  background: #ffdddd;
+  border-left: 4px solid #d10000;
+  color: #8b0000;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 0.9rem;
 }
 
-.tema-neutro .temp-display {
-    background: linear-gradient(135deg, #e8f1ff, #d2e7ff);
-    color: #1e2a3a;
+/* Animação */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Fundo com nuvens animadas */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 200%;
+  height: 200%;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  opacity: 0.18;
+  pointer-events: none;
+  animation: moverNuvens 50s linear infinite;
 }
 
-.tema-quente .temp-display {
-    background: linear-gradient(135deg, #ffe0c2, #ffb07a);
-    color: #7a3b00;
+/* Camada 1 das nuvens */
+body::before {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Cloud.svg/1024px-Cloud.svg.png');
+  animation-duration: 90s;
+}
+
+/* Camada 2 (mais lenta para profundidade) */
+body::after {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Cloud.svg/1024px-Cloud.svg.png');
+  opacity: 0.10;
+  animation-duration: 150s;
+  animation-direction: reverse;
+}
+
+/* Animação do movimento */
+@keyframes moverNuvens {
+  from { transform: translateX(0) translateY(0); }
+  to { transform: translateX(-30%) translateY(-15%); }
 }
