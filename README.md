@@ -8,46 +8,60 @@ Este projeto demonstra como a IA pode **simplificar o desenvolvimento**, mantend
 
 ## ✨ Funcionalidades
 
-- Busca de cidade via **API de Geocodificação do Open-Meteo**
-- Consulta de clima atual com:
-  - Temperatura (°C)
-  - Ícone e descrição da condição climática
-  - Nome da cidade formatado
-  - Data completa da consulta
-- **Tema automático Dia / Noite**
-- Tratamento de erros:
-  - Cidade inválida
-  - Falha de rede
-  - Dados climáticos indisponíveis
+Busca de cidade via API de Geocodificação do Open-Meteo
+
+Consulta de clima atual, exibindo:
+
+Temperatura (°C)
+
+Ícone e descrição do clima
+
+Nome da cidade formatado
+
+Data e horário da consulta
+
+Tema automático (Dia / Noite) baseado na API
+
+Tratamento de erros:
+
+Cidade inexistente
+
+Falha de rede
+
+Dados climáticos indisponíveis
 
 ---
 
 ## 🖥️ Interface
 
-### Modo Claro
-_(adicione o print aqui depois)_
+| Modo Claro            | Modo Noturno          |
+| --------------------- | --------------------- |
+| *(insira print aqui)* | *(insira print aqui)* |
 
-### Modo Noturno
-_(adicione o print aqui depois)_
+
+
 
 ---
 
 ## 🧠 Tecnologias e Ferramentas
 
-| Tecnologia | Uso |
-|-----------|-----|
-| JavaScript ES6+ | Lógica e requisições |
-| HTML5 / CSS3 | Interface e layout responsivo |
-| **Open-Meteo Geocoding API** | Conversão Cidade → Coordenadas |
-| **Open-Meteo Weather API** | Dados climáticos |
-| Jest (Node) | Testes automatizados |
-| Git + GitHub | Versionamento e deploy |
+| Tecnologia / Ferramenta   | Finalidade                                     |
+| ------------------------- | ---------------------------------------------- |
+| JavaScript ES6+           | Lógica, integração com API, manipulação de DOM |
+| HTML5 e CSS3              | Interface, responsividade e estilos            |
+| Open-Meteo Geocoding API  | Conversão Nome da Cidade → Coordenadas         |
+| Open-Meteo Weather API    | Dados climáticos                               |
+| Jest (Node)               | Testes automatizados                           |
+| Git + GitHub              | Versionamento e organização do projeto         |
+| ChatGPT, Copilot e Claude | Assistência na escrita e revisão de código     |
+
 
 ---
 
 ## 🚀 Como executar o projeto
 
-1. Clone o repositório:
+1. git clone https://github.com/carinabentlin/projeto_clima.git
+
 
 2. Acesse a pasta:
 
@@ -79,14 +93,19 @@ npm test
     │ style.css
     │ api.js
     │ package.json
+    │ README.md
     │
     └── tests/
         └── api.test.js
 
-## 🧭 Branches do Projeto
-**Branch**	          **Conteúdo**
-01_                     projeto	Estrutura inicial + interface básica
-02_ep_codificacao	      Refino, clima completo, tema dinâmico, testes
+
+| Branch                | Conteúdo                                      |
+| --------------------- | --------------------------------------------- |
+| **01_projeto**        | Estrutura inicial + interface                 |
+| **02_ep_codificacao** | Refinamento, retorno formatado, tema dinâmico |
+| **03_testes**         | Testes com Jest                               |
+| **04_doc_review**     | Documentação, README e revisão de código      |
+
 
 
 ## 🤖 Feito com apoio de Inteligência Artificial
@@ -100,6 +119,7 @@ Este projeto foi desenvolvido com auxílio de:
     Claude (Anthropic)
 
     A IA atuou como copiloto, não substituindo análise, decisões ou estilo de código.
+
 
 ## 👩‍💻 Autoria
 
