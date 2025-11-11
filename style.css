@@ -1,144 +1,281 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+/* ================================
+   Tema e Paleta (CSS Variables)
+==================================*/
+:root {
+  --bg-start: #e8f1ff;
+  --bg-end:   #bcd7ff;
+  --text:     #0b2a4a;
 
-* {
+  --card:           #ffffff;
+  --card-muted:     #eef5ff;
+  --accent:         #2a6de0; /* azul principal */
+  --accent-dark:    #1e56b6;
+  --accent-weak:    #e3efff;
+
+  --ok:   #1e7f3b;
+  --warn: #c47c19;
+  --err:  #c0392b;
+
+  --shadow: 0 8px 24px rgba(10, 35, 80, .12);
+}
+
+:root[data-theme="dark"] {
+  --bg-start: #0e1726;
+  --bg-end:   #0a1220;
+  --text:     #e6eefc;
+
+  --card:         #0f1c33;
+  --card-muted:   #0b1629;
+  --accent:       #4e92ff;
+  --accent-dark:  #2a6de0;
+  --accent-weak:  #0b1a33;
+
+  --shadow: 0 8px 24px rgba(0,0,0,.35);
+}
+
+/* ================================
+   Reset básico e base
+==================================*/
+* { box-sizing: border-box; }
+html, body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: var(--text);
+  min-height: 100%;
+  background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
 }
 
-body {
-  min-height: 100vh;
+a { color: var(--accent); }
+a:hover { text-decoration: none; }
+
+/* ================================
+   Layout geral
+==================================*/
+.topbar {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 20px 16px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 20px;
-  transition: background 0.5s;
+  justify-content: space-between;
 }
 
-/* Fundo dinâmico (dia/noite) */
-body.dia {
-  background: linear-gradient(180deg, #9ad5ff, #b4e0ff, #d3f0ff);
+.app-title {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: .2px;
 }
 
-body.noite {
-  background: linear-gradient(180deg, #0d1a33, #112244, #0a1529);
-}
-
-/* Container principal */
 .container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+.footer {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 16px;
   text-align: center;
-  width: 350px;
+  opacity: .85;
 }
 
-/* Caixa de busca */
-.form {
-  display: flex;
-  gap: 10px;
-  margin: 20px 0;
+/* ================================
+   Busca
+==================================*/
+.search-area {
+  margin: 24px auto 28px;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
 }
 
-input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
+.search-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  width: min(680px, 100%);
+}
+
+.input {
+  height: 48px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: var(--card);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.input:focus {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent);
+}
+
+.btn {
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 12px;
   border: none;
-  background: #fff;
-  outline: none;
-}
-
-button {
-  padding: 12px 18px;
-  border: none;
-  border-radius: 8px;
-  background: #3d8bfd;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #1d6df6;
-}
-
-/* Card Glassmorphism */
-.weather-card {
-  margin-top: 20px;
-  padding: 25px;
-  background: rgba(255, 255, 255, 0.28);
-  backdrop-filter: blur(15px);
-  border-radius: 18px;
-  box-shadow: 0 4px 25px rgba(0,0,0,0.15);
-  animation: fadeIn 0.5s ease forwards;
-}
-
-/* Temperatura */
-.temp-display {
-  font-size: 3.2rem;
+  background: var(--accent);
+  color: #fff;
   font-weight: 600;
-  margin-bottom: 8px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
 }
 
-/* Nome da cidade */
-.city-label {
-  font-size: 1rem;
-  font-weight: 500;
+.btn:hover { background: var(--accent-dark); }
+
+.btn-outline {
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
 }
 
-/* Descrição */
-.description {
-  opacity: 0.8;
-  margin-top: 5px;
-  font-size: 0.9rem;
+.btn-outline:hover {
+  background: var(--accent-weak);
 }
 
-/* Erro */
-.erro-msg {
-  background: #ffdddd;
-  border-left: 4px solid #d10000;
-  color: #8b0000;
-  padding: 12px;
-  border-radius: 8px;
-  margin-top: 20px;
-  font-size: 0.9rem;
+.msg {
+  min-height: 20px;
+  color: var(--warn);
 }
 
-/* Animação */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-/* Fundo com nuvens animadas */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 200%;
-  height: 200%;
-  background-repeat: no-repeat;
-  background-size: 60%;
-  opacity: 0.18;
-  pointer-events: none;
-  animation: moverNuvens 50s linear infinite;
+/* ================================
+   Resultado
+==================================*/
+.result-area {
+  display: grid;
+  gap: 18px;
+  justify-items: center;
 }
 
-/* Camada 1 das nuvens */
-body::before {
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Cloud.svg/1024px-Cloud.svg.png');
-  animation-duration: 90s;
+/* Card principal (temperatura atual) */
+.card-main {
+  width: min(680px, 100%);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  border-radius: 20px;
+  padding: 22px 22px 18px;
+  display: grid;
+  gap: 8px;
 }
 
-/* Camada 2 (mais lenta para profundidade) */
-body::after {
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Cloud.svg/1024px-Cloud.svg.png');
-  opacity: 0.10;
-  animation-duration: 150s;
-  animation-direction: reverse;
+.current-top {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  align-items: center;
+  gap: 14px;
 }
 
-/* Animação do movimento */
-@keyframes moverNuvens {
-  from { transform: translateX(0) translateY(0); }
-  to { transform: translateX(-30%) translateY(-15%); }
+.current-top img {
+  width: 72px;
+  height: 72px;
+}
+
+.city-name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.current-desc {
+  margin: 0;
+  opacity: .85;
+}
+
+/* Temperatura centralizada e bloco azul mais escuro */
+.temp-block {
+  margin-top: 10px;
+  background: linear-gradient(180deg, #cfe3ff, #b0d0ff);
+}
+:root[data-theme="dark"] .temp-block {
+  background: linear-gradient(180deg, #112244, #0e1b35);
+}
+
+.temp-block {
+  border-radius: 16px;
+  padding: 22px;
+  display: grid;
+  place-items: center;
+}
+
+.temp-value {
+  margin: 0;
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+/* Título da previsão */
+.section-title {
+  width: min(680px, 100%);
+  font-weight: 700;
+  margin: 6px 0 0;
+}
+
+/* Cards dos próximos dias */
+.card-small-container {
+  width: min(680px, 100%);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.card-small {
+  background: var(--card);
+  box-shadow: var(--shadow);
+  border-radius: 16px;
+  padding: 14px 12px;
+  display: grid;
+  gap: 6px;
+  text-align: center;
+}
+
+.card-small img {
+  width: 40px;
+  height: 40px;
+  justify-self: center;
+}
+
+.day-name { font-weight: 700; margin: 2px 0 0; }
+.minmax   { opacity: .95; }
+.meta {
+  display: grid;
+  gap: 2px;
+  font-size: 13px;
+  opacity: .9;
+}
+
+/* ================================
+   Responsivo
+==================================*/
+@media (max-width: 760px) {
+  .card-small-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .temp-value { font-size: 56px; }
+}
+.topbar {
+  position: relative;
+  display: flex;
+  justify-content: center; /* centraliza o conteúdo */
+  align-items: center;
+}
+
+.topbar .app-title {
+  margin: 0 auto;
+}
+
+#toggleTheme {
+  position: absolute;
+  right: 16px; /* mantém o botão no lugar */
+  top: 50%;
+  transform: translateY(-50%);
 }

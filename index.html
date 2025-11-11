@@ -1,24 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Previsão do Tempo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <header class="topbar">
+    <h1 class="app-title">Previsão do Tempo</h1>
+    <button id="toggleTheme" class="btn btn-outline" aria-label="Alternar tema">🌙</button>
+  </header>
 
-  <div class="container">
-    <h1>Previsão do Tempo</h1>
+  <main class="container">
+    <!-- Área de busca centralizada -->
+    <section class="search-area">
+      <div class="search-row">
+        <input
+          type="text"
+          id="cidade"
+          class="input"
+          placeholder="Digite o nome da cidade"
+          aria-label="Nome da cidade"
+        />
+        <button id="buscar" class="btn">Buscar</button>
+      </div>
+      <!-- Mensagens de erro/estado -->
+      <div id="mensagem" class="msg" role="status" aria-live="polite"></div>
+    </section>
 
-    <div class="form">
-      <input type="text" id="cidade" placeholder="Digite o nome da cidade">
-      <button onclick="buscarClima()">Buscar</button>
-    </div>
+    <!-- Resultado -->
+    <section id="resultado" class="result-area">
+      <!-- Card principal + lista dos próximos dias serão injetados pelo JS -->
+    </section>
+  </main>
 
-    <div id="resultado"></div>
-  </div>
+  <footer class="footer">
+    <small>Dados por <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></small>
+  </footer>
 
   <script src="api.js"></script>
 </body>
