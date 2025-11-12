@@ -20,8 +20,8 @@ function showMsg(text = "", type = "warn") {
   if (!el) return;
   el.textContent = text;
   el.style.color = type === "err" ? "var(--err)"
-                 : type === "ok"  ? "var(--ok)"
-                 : "var(--warn)";
+    : type === "ok" ? "var(--ok)"
+      : "var(--warn)";
 }
 
 /* ================================
@@ -170,7 +170,7 @@ function renderWeather(cityLabel, weather) {
       const tmin = Math.round(daily.temperature_2m_min[i]);
       const wind = Math.round(daily.windspeed_10m_max[i]); // km/h
       const rain = Math.round(daily.precipitation_sum[i]); // mm
-      const rh   = daily.relative_humidity_2m_mean?.[i];
+      const rh = daily.relative_humidity_2m_mean?.[i];
       const rhStr = (typeof rh === "number") ? `${Math.round(rh)}%` : "—";
 
       return `
@@ -240,9 +240,16 @@ document.addEventListener("DOMContentLoaded", () => {
   $("#toggleTheme")?.addEventListener("click", toggleTheme);
 });
 
-/* ================================
-   Export só se for usado em testes (Node/Jest)
-==================================*/
+// ===============================
+// Export para testes (Node/Jest)
+// ===============================
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { geocodeCity, fetchWeatherBundle, getWeatherIcon, getWeatherText };
+  module.exports = {
+    geocodeCity,
+    fetchWeatherBundle,
+    getWeatherText,
+    getWeatherIcon,
+    onSearch
+  };
+
 }

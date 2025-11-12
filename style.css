@@ -3,41 +3,46 @@
 ==================================*/
 :root {
   --bg-start: #e8f1ff;
-  --bg-end:   #bcd7ff;
-  --text:     #0b2a4a;
+  --bg-end: #bcd7ff;
+  --text: #0b2a4a;
 
-  --card:           #ffffff;
-  --card-muted:     #eef5ff;
-  --accent:         #2a6de0; /* azul principal */
-  --accent-dark:    #1e56b6;
-  --accent-weak:    #e3efff;
+  --card: #ffffff;
+  --card-muted: #eef5ff;
+  --accent: #2a6de0;
+  /* azul principal */
+  --accent-dark: #1e56b6;
+  --accent-weak: #e3efff;
 
-  --ok:   #1e7f3b;
+  --ok: #1e7f3b;
   --warn: #c47c19;
-  --err:  #c0392b;
+  --err: #c0392b;
 
   --shadow: 0 8px 24px rgba(10, 35, 80, .12);
 }
 
 :root[data-theme="dark"] {
   --bg-start: #0e1726;
-  --bg-end:   #0a1220;
-  --text:     #e6eefc;
+  --bg-end: #0a1220;
+  --text: #e6eefc;
 
-  --card:         #0f1c33;
-  --card-muted:   #0b1629;
-  --accent:       #4e92ff;
-  --accent-dark:  #2a6de0;
-  --accent-weak:  #0b1a33;
+  --card: #0f1c33;
+  --card-muted: #0b1629;
+  --accent: #4e92ff;
+  --accent-dark: #2a6de0;
+  --accent-weak: #0b1a33;
 
-  --shadow: 0 8px 24px rgba(0,0,0,.35);
+  --shadow: 0 8px 24px rgba(0, 0, 0, .35);
 }
 
 /* ================================
    Reset básico e base
 ==================================*/
-* { box-sizing: border-box; }
-html, body {
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -46,8 +51,13 @@ html, body {
   background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
 }
 
-a { color: var(--accent); }
-a:hover { text-decoration: none; }
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  text-decoration: none;
+}
 
 /* ================================
    Layout geral
@@ -125,7 +135,9 @@ a:hover { text-decoration: none; }
   cursor: pointer;
 }
 
-.btn:hover { background: var(--accent-dark); }
+.btn:hover {
+  background: var(--accent-dark);
+}
 
 .btn-outline {
   height: 40px;
@@ -195,6 +207,7 @@ a:hover { text-decoration: none; }
   margin-top: 10px;
   background: linear-gradient(180deg, #cfe3ff, #b0d0ff);
 }
+
 :root[data-theme="dark"] .temp-block {
   background: linear-gradient(180deg, #112244, #0e1b35);
 }
@@ -244,8 +257,15 @@ a:hover { text-decoration: none; }
   justify-self: center;
 }
 
-.day-name { font-weight: 700; margin: 2px 0 0; }
-.minmax   { opacity: .95; }
+.day-name {
+  font-weight: 700;
+  margin: 2px 0 0;
+}
+
+.minmax {
+  opacity: .95;
+}
+
 .meta {
   display: grid;
   gap: 2px;
@@ -260,12 +280,17 @@ a:hover { text-decoration: none; }
   .card-small-container {
     grid-template-columns: repeat(2, 1fr);
   }
-  .temp-value { font-size: 56px; }
+
+  .temp-value {
+    font-size: 56px;
+  }
 }
+
 .topbar {
   position: relative;
   display: flex;
-  justify-content: center; /* centraliza o conteúdo */
+  justify-content: center;
+  /* centraliza o conteúdo */
   align-items: center;
 }
 
@@ -275,7 +300,8 @@ a:hover { text-decoration: none; }
 
 #toggleTheme {
   position: absolute;
-  right: 16px; /* mantém o botão no lugar */
+  right: 16px;
+  /* mantém o botão no lugar */
   top: 50%;
   transform: translateY(-50%);
 }

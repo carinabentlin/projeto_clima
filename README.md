@@ -1,45 +1,23 @@
-# 🌦️ Previsão do Tempo — Aplicativo Web
+# 🌦️ Projeto Clima – Previsão do Tempo (Open Meteo)
 
-Aplicativo simples e intuitivo para consulta de **previsão do tempo em tempo real**, desenvolvido com **HTML, CSS e JavaScript puro**, com o apoio de **ferramentas de Inteligência Artificial** para acelerar o desenvolvimento Back-end e Front-end.
+![Status](https://img.shields.io/badge/tests-passed-brightgreen)
+![License](https://img.shields.io/badge/license-ISC-blue)
+![Build](https://img.shields.io/badge/build-successful-purple)
+![Jest](https://img.shields.io/badge/tested%20with-Jest-yellow)
 
-Este projeto demonstra como a IA pode **simplificar o desenvolvimento**, mantendo **boa estrutura, clareza e boas práticas**.
-
----
-
-## ✨ Funcionalidades
-
-Busca de cidade via API de Geocodificação do Open-Meteo
-
-Consulta de clima atual, exibindo:
-
-Temperatura (°C)
-
-Ícone e descrição do clima
-
-Nome da cidade formatado
-
-Data e horário da consulta
-
-Tema automático (Dia / Noite) baseado na API
-
-Tratamento de erros:
-
-Cidade inexistente
-
-Falha de rede
-
-Dados climáticos indisponíveis
+Aplicativo web simples e responsivo para consultar **a previsão do tempo** de qualquer cidade, usando a **API Open-Meteo**.  
+Desenvolvido em **JavaScript puro**, com integração de API, testes automatizados e suporte a tema claro/escuro.
 
 ---
 
-## 🖥️ Interface
+## 🚀 Funcionalidades
 
-| Modo Claro            | Modo Noturno          |
-| --------------------- | --------------------- |
-| *(insira print aqui)* | *(insira print aqui)* |
-
-
-
+- 🔍 Busca por nome da cidade (via Open-Meteo Geocoding)
+- 🌡️ Mostra clima atual e previsão para os **5 próximos dias**
+- 🧭 Exibe temperatura, vento, chuva e umidade média
+- ☀️ Alternância entre **modo claro/escuro**
+- 💬 Mensagens de erro amigáveis (ex: “Cidade não encontrada”)
+- ✅ Testes unitários com **Jest + jsdom**
 
 ---
 
@@ -58,6 +36,33 @@ Dados climáticos indisponíveis
 
 ---
 
+## 🖥️ Interface
+
+| Modo Claro                   | Modo Noturno          |
+| ---------------------------- | --------------------- |
+| *(![alt text](image-1.png))* | *![alt text](image.png)* |
+
+---
+
+## ⚙️ Estrutura do Projeto
+
+projeto_clima/
+├── assets/
+│ └── img/ # Ícones climáticos (.svg)
+├── tests/
+│ ├── api.test.js # Testes da camada de API
+│ └── dom.test.js # Testes de interface e DOM
+├── api.js # Lógica principal e integração com API
+├── index.html # Estrutura base da aplicação
+├── style.css # Estilos e temas
+├── jest.config.js # Configuração do Jest
+├── jest.setup.js # Setup para ambiente de testes
+└── package.json
+
+
+
+---
+
 ## 🚀 Como executar o projeto
 
 1. git clone https://github.com/carinabentlin/projeto_clima.git
@@ -70,6 +75,7 @@ cd projeto_clima
 
 3. Abra o projeto no VS Code e execute o index.html usando Live Server.
 
+---
 
 ## 🧪 Testes Automatizados
 
@@ -87,6 +93,8 @@ npm test
       expect(clima).toHaveProperty("temperature");
     });
 
+---
+
 ## 🗃️ Estrutura de Pastas
     projeto_clima/
     │ index.html
@@ -98,28 +106,37 @@ npm test
     └── tests/
         └── api.test.js
 
+---
 
-| Branch                | Conteúdo                                      |
-| --------------------- | --------------------------------------------- |
-| **01_projeto**        | Estrutura inicial + interface                 |
-| **02_ep_codificacao** | Refinamento, retorno formatado, tema dinâmico |
-| **03_testes**         | Testes com Jest                               |
-| **04_doc_review**     | Documentação, README e revisão de código      |
+| Branch                   | Conteúdo                                      |
+| ------------------------ | --------------------------------------------- |
+| **01_projeto**           | Estrutura inicial + interface                 |
+| **02_ep_codificacao**    | Refinamento, retorno formatado, tema dinâmico |
+| **03_testes**            | Testes com Jest                               |
+| **04_doc_review**        | Documentação, README e revisão de código      |
+| **05_doc_review**        | Implementação de funcionalidades avançadas    |
+| **06_etica_segurança**   | Ética e Segurança                             |
 
+---
 
+## 🛡️ Segurança e Licenciamento
 
-## 🤖 Feito com apoio de Inteligência Artificial
+✅ Nenhum dado sensível é armazenado.
 
-Este projeto foi desenvolvido com auxílio de:
+🌍 A aplicação consome apenas dados públicos da Open-Meteo.
 
-    GitHub Copilot
+🔒 O código é open-source, sob licença ISC.
 
-    ChatGPT (OpenAI)
+⚠️ Chaves de API não são necessárias (API livre de autenticação).
 
-    Claude (Anthropic)
+---
 
-    A IA atuou como copiloto, não substituindo análise, decisões ou estilo de código.
+## 📄 Licença
 
+Este projeto está licenciado sob os termos da licença ISC.
+Você pode usar, copiar e modificar livremente, desde que cite a autoria original.
+
+---
 
 ## 👩‍💻 Autoria
 

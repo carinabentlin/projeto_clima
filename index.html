@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Previsão do Tempo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header class="topbar">
     <h1 class="app-title">Previsão do Tempo</h1>
@@ -16,13 +18,8 @@
     <!-- Área de busca centralizada -->
     <section class="search-area">
       <div class="search-row">
-        <input
-          type="text"
-          id="cidade"
-          class="input"
-          placeholder="Digite o nome da cidade"
-          aria-label="Nome da cidade"
-        />
+        <input type="text" id="cidade" class="input" placeholder="Digite o nome da cidade"
+          aria-label="Nome da cidade" />
         <button id="buscar" class="btn">Buscar</button>
       </div>
       <!-- Mensagens de erro/estado -->
@@ -41,4 +38,5 @@
 
   <script src="api.js"></script>
 </body>
+
 </html>
