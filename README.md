@@ -18,6 +18,7 @@ Desenvolvido em **JavaScript puro**, com integração de API, testes automatizad
 - ☀️ Alternância entre **modo claro/escuro**
 - 💬 Mensagens de erro amigáveis (ex: “Cidade não encontrada”)
 - ✅ Testes unitários com **Jest + jsdom**
+- 📄 Documentação atualizada e auditoria de segurança e licenciamento
 
 ---
 
@@ -25,14 +26,15 @@ Desenvolvido em **JavaScript puro**, com integração de API, testes automatizad
 
 | Tecnologia / Ferramenta   | Finalidade                                     |
 | ------------------------- | ---------------------------------------------- |
-| JavaScript ES6+           | Lógica, integração com API, manipulação de DOM |
-| HTML5 e CSS3              | Interface, responsividade e estilos            |
+| JavaScript                | Lógica, integração com API, manipulação de DOM |
+| HTML5 e CSS               | Interface, responsividade e estilos            |
 | Open-Meteo Geocoding API  | Conversão Nome da Cidade → Coordenadas         |
 | Open-Meteo Weather API    | Dados climáticos                               |
 | Jest (Node)               | Testes automatizados                           |
 | Git + GitHub              | Versionamento e organização do projeto         |
 | ChatGPT, Copilot e Claude | Assistência na escrita e revisão de código     |
-
+| Weather Icons             | Ícones visuais de condições do tempo           |
+| ------------------------- | ---------------------------------------------- |
 
 ---
 
@@ -129,12 +131,25 @@ npm test
 
 ⚠️ Chaves de API não são necessárias (API livre de autenticação).
 
+✔ Não há cookies, rastreamento ou armazenamento de informações pessoais
+✔ Código revisado buscando prevenir XSS, injeção e requisições desnecessárias
+✔ Dependências auditadas pelo npm audit (0 vulnerabilidades conhecidas)
+
 ---
 
 ## 📄 Licença
 
 Este projeto está licenciado sob os termos da licença ISC.
 Você pode usar, copiar e modificar livremente, desde que cite a autoria original.
+
+| Item                  | Situação                  |
+| --------------------- | ------------------------- |
+| Licença do projeto    | **ISC** (livre)           |
+| Uso da API Open-Meteo | Permitido — API pública   |
+| Weather Icons         | MIT — compatível          |
+| Dependências NPM      | Somente Jest — MIT        |
+| Conformidade geral    | ✔ Projeto 100% compatível |
+
 
 ---
 
